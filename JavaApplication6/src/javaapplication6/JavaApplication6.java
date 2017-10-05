@@ -40,5 +40,4 @@ public class JavaApplication6 {
             System.out.print(n);
         System.out.println();
     }
-    
 }
