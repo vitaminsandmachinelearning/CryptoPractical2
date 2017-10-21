@@ -9,8 +9,8 @@ package javaapplication6;
  *
  * @author jm2-radford
  */
-public class D6Gen4 {
-    public void calc(String input)
+public class BCH {
+    public int[] encode(String input)
     {
         int[] narray = new int[input.length() + 4];
         
@@ -22,6 +22,16 @@ public class D6Gen4 {
         narray[8] = (9 * narray[0] + narray[1] + 7 * narray[2] + 8 * narray[3] + 7 * narray[4] + 7 * narray[5]) % 11;
         narray[9] = (narray[0] + 2 * narray[1] + 9 * narray[2] + 10 * narray[3] + 4 * narray[4] + narray[5]) % 11;
         
+        return narray;
+    }
+    
+    public void decode(String input)
+    {
+        
+    }
+    
+    void output(int[] narray)
+    {
         for(int i = 6; i < narray.length; i++)
             if(narray[i] > 9)
             {
