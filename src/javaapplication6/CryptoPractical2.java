@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class CryptoPractical2 {
 
-    public static void main(String[] args) {
+    public static void testPractical2(String[] args) {
         BCH bch = new BCH();
         Syndromes d10 = new Syndromes();
         
