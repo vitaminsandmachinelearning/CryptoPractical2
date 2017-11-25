@@ -6,7 +6,6 @@
 package javaapplication6;
 
 import java.util.Arrays;
-import java.math.*;
 
 /**
  *
@@ -76,7 +75,7 @@ public class BCHCalculator extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(jTextField1.getText().length() == 10)
-            if(!jTextField1.getText().contains("[1-9]"))
+            if(!jTextField1.getText().contains("[1-9]"))//make sure only numbers are input
             {
                 //Run quick three error check to see if any number d1-d10 is 10
                 if(quickthreeerrorcheck(s.calculate(jTextField1.getText())))
@@ -84,7 +83,7 @@ public class BCHCalculator extends javax.swing.JFrame {
                     jLabel1.setText("At least three errors occured.");
                     return;
                 }
-                //Only pass the syndromes because nothing else is needed now
+                //Only pass the syndromes because nothing else is needed past this point
                 errorCheck(Arrays.copyOfRange(s.calculate(jTextField1.getText()),10,14));
             }
             else
@@ -146,7 +145,7 @@ public class BCHCalculator extends javax.swing.JFrame {
             jLabel1.setText("At least three errors occured. No sqrt.");
             return;
         }
-
+        //calculate indexes of two errors and their magnitudes
         int I = ((-Q + sqrttable[sqrtn - 1]) * inv) % 11;
         int J = ((-Q - sqrttable[sqrtn - 1]) * inv) % 11;
         I = I < 0 ? I + 11 : I;
@@ -159,7 +158,7 @@ public class BCHCalculator extends javax.swing.JFrame {
         System.out.println(String.format("P: %d Q: %d R: %d", P, Q, R));
         System.out.println(String.format("I:%d J:%d A:%d B:%d", I, J, A, B));
         System.out.println(String.format("S1: %d S2: %d S3: %d S4: %d", sarray[0], sarray[1], sarray[2], sarray[3]));
-        if(I == 0 || J == 0)
+        if(I == 0 || J == 0) //if the index is 0, at least 3 errors occured
         {
             jLabel1.setText("At least three errors occured.");
             return;
