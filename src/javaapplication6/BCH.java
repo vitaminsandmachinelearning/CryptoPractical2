@@ -10,10 +10,9 @@ package javaapplication6;
  * @author jm2-radford
  */
 public class BCH {
-    public int[] encode(String input)
+    int[] encode(String input)
     {
         int[] narray = new int[input.length() + 4];
-        
         for(int i = 0; i < input.length(); i++)
             narray[i] = Character.getNumericValue(input.charAt(i));
         //generate the 4 error correction digits
@@ -24,17 +23,16 @@ public class BCH {
         return narray;
     }
     
-    void output(int[] narray)
+    public String output(String input)
     {
+        int[] narray = encode(input);
+        String out = "";
         for(int i = 6; i < narray.length; i++)
             if(narray[i] > 9)
-            {
-                System.out.println("Unusable number");
-                return;
-            }
+                return "Unusable number";
         for(int n : narray)
-            System.out.print(n);
-        System.out.println();
+            out += n;
+        return out;
     }
 }
     
