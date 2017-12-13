@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Syndromes {
     public int[] calculate(int[] narray)
     {
+        //calculate the syndromes for a 10 digit number
         narray[10] = (narray[0] + narray[1] + narray[2] + narray[3] + narray[4] + narray[5] + narray[6] + narray[7] + narray[8] + narray[9]) % 11;
         narray[11] = (narray[0] + narray[1] * 2 + narray[2] * 3 + narray[3] * 4 + narray[4] * 5 + narray[5] * 6 + narray[6] * 7 + narray[7] * 8 + narray[8] * 9 + narray[9] * 10) % 11;
         narray[12] = (narray[0] + narray[1] * 4 + narray[2] * 9 + narray[3] * 5 + narray[4] * 3 + narray[5] * 3 + narray[6] * 5 + narray[7] * 9 + narray[8] * 4 + narray[9]) % 11;
